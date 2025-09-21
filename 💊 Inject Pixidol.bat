@@ -2,7 +2,7 @@
 chcp 65001 >nul
 setlocal enabledelayedexpansion
 
-if not exist "reduced" mkdir "reduced"
+if not exist "Optimized 💊" mkdir "Optimized 💊"
 
 for %%F in (*.mp4) do (
     echo Checking: %%F
@@ -16,7 +16,7 @@ for %%F in (*.mp4) do (
         echo   ^> SKIPPED: File already has Processed marker
     ) else (
         echo   ^> PROCESSING: Converting...
-        ffmpeg -v info -i "%%F" -map_metadata 0 -metadata comment="Processed ▣" -c:v libx264 -crf 23 -preset fast -c:a aac -b:a 128k -y "reduced\%%~nF.mp4"
+        ffmpeg -v info -i "%%F" -map_metadata 0 -metadata comment="Processed ▣" -c:v libx264 -crf 23 -preset fast -c:a aac -b:a 128k -y "Optimized 💊\%%~nF.mp4"
         if !errorlevel! equ 0 (
             echo   ^> SUCCESS: Converted
         ) else (
